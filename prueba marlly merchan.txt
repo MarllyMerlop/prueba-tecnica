@@ -1,0 +1,55 @@
+CREATE DATABASE  IF NOT EXISTS `prueba_marll_merchan` 
+
+CREATE TABLE `medico` (
+  `idmedico` INT NOT NULL AUTO_INCREMENTL,
+  `cedula` int NOT NULL,
+  `nombres` varchar(45) NOT NULL,
+  `especialidad` varchar(45) NOT NULL,
+  `entidad` varchar(45) NOT NULL,
+  PRIMARY KEY (`idmedico`)
+) 
+-- AGREGAR DATOS --
+INSERT INTO `medico` VALUES (1,46583212,'esmeralda holguin','especialista','hospital'),(2,11216565,'maia lopez','aux enfermeria','clinica salud'),(3,8885945,'julio duarte','medicina general','hospital');
+
+
+CREATE TABLE `pacientes` (
+  `idpacientes` INT NOT NULL AUTO_INCREMENT,
+  `cedula` varchar(45) NOT NULL,
+  `nombres` varchar(45) NOT NULL,
+  `celular` int NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `fecha` date NOT NULL,
+  `id_medico` int NOT NULL,
+  `id_reg_medico` int NOT NULL,
+  PRIMARY KEY (`idpacientes`)
+)
+-- AGREGAR DATOS --
+INSERT INTO `pacientes` VALUES (1,'11215906','juan perez rey',22266565,'juan.perez@gmail.com','2015-09-01'),(2,'4032666','anamaria guzman',21252521,'anaguz@gmail.com','2021-01-25'),(3,'6598545','helena ortiz',321456266,'helena.85@gmail.com','2022-06-10'),(4,'95356565','sofia fuentes',314569857,'nenita.sofi@gmail.com','2023-04-18');
+
+CREATE TABLE `registro_medico` (
+  `idregistro_medico` INT NOT NULL AUTO_INCREMENT,
+  `id_medico` int NOT NULL,
+  `id_paciente` int NOT NULL,
+  `observaciones` varchar(200) NOT NULL,
+  `fecha_atencion` date NOT NULL,
+  PRIMARY KEY (`idregistro_medico`)
+) 
+-- AGREGAR DATOS --
+INSERT INTO `registro_medico` VALUES (1,1,4,'paciente con malestar general','2023-05-26'),(2,2,2,'paciente con dolor abdominal, se maneja con medicamentos y reposo','2021-01-26'),(3,3,3,'paciente con lesion en brazo derecho, manifiesta que fue accidente en casa','2022-06-10'),(4,4,4,'paciente ingresa con fiebre y vomito, refiere que lleva mas de 24 horas con estos sintomas','2019-07-25');
+
+
+
+4
+-- CONSULTA POR ENTIDAD --
+4-1. SELECT idmedico, nombres FROM prueba_marll_merchan.medico WHERE entidad = 'hospital'
+-- CONSULTA POR FECHA --
+4-2.  SELECT idpacientes, nombres FROM prueba_marll_merchan.pacientes WHERE fecha >= 2020-01-01
+
+4-3.
+
+-- ACTUALIZAR DATOS --
+5 UPDATE prueba_marll_merchan.pacientes SET celular = '21252521' WHERE idpacientes =2
+
+-- ELIMINAR DATOS --
+6 DELETE FROM prueba_marll_merchan. medico WHERE idpacientes =53
+
