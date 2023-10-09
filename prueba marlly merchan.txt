@@ -19,8 +19,6 @@ CREATE TABLE `pacientes` (
   `celular` int NOT NULL,
   `correo` varchar(50) NOT NULL,
   `fecha` date NOT NULL,
-  `id_medico` int NOT NULL,
-  `id_reg_medico` int NOT NULL,
   PRIMARY KEY (`idpacientes`)
 )
 -- AGREGAR DATOS --
